@@ -1,0 +1,1124 @@
+/* Start Variables */
+:root{
+ --main-color: #19c8fa;  
+ --hover-main-color: #03a4d1;
+ --transparent-color: rgb(15 116 143 / 70%);
+ --section-padding: 100px;
+}
+/* End Variables */
+
+/* Start Global Rules */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+ul {
+    list-style: none;
+}
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Small */
+@media (min-width: 768px) {
+    .container{
+        width: 750px;
+    }
+}
+/* Medium */
+@media (min-width: 992px) {
+    .container{
+        width: 970px;
+    }
+}
+/* Large */
+@media (min-width: 1200px) {
+    .container{
+        width: 1170px;
+    }
+}
+/* End Global Rules */
+/* Start Components */
+.main-heading {
+    text-align: center;
+    /* padding: 100px; */
+}
+.main-heading h2 {
+    font-weight: normal;
+    font-size: 40px;
+    margin-bottom: 70px;
+    position: relative;
+    text-transform: uppercase;
+}
+.main-heading h2::before {
+    content: "";
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    width: 120px;
+    background-color: #333;
+}
+.main-heading h2::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #333;
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -37px;
+    background-color: white;
+}
+.main-heading p {
+    width: 550px;
+    max-width: 100%; /* so that in mobiles screens will not go out the window */
+    margin: 0 auto 100px;
+    line-height: 2;
+    color: #777;
+}
+/* End Components */
+/* Start Header */
+header {
+    /* We need to make the header absolute because there will be background img covering  */
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+}
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    min-height: 98px;
+}
+header .container::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    bottom: 0;
+    background-color: #a2a2a2;
+    width: calc(100% - 30px);
+    left: 15px;
+}
+header .logo img {
+    height: 45px;
+}
+header nav {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+header nav .toggle-menu {
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+}
+@media (min-width: 768px) {
+    /* On computers screens we will hide the menu bars icon */
+    header nav .toggle-menu {
+        display: none;
+    }
+}
+header nav ul {
+    display: flex;   
+}
+@media (max-width: 767px) {
+    /* On mobiles screens we will show the menu bars icon */
+    /* and hide the nav ul */
+    header nav ul.hide {
+      display: none;  
+    }
+    header nav ul{
+        display: flex;
+        flex-direction: column;
+        position: absolute; /* will be positioned to the 'header .container'*/
+        top: 100%; /* This means to be far away from the top of your parent by its height */
+        left: 0;
+        width: 100%;
+        background-color: rgb(0 0 0 / 70%);
+    }
+    header nav ul li a {
+        padding: 15px !important;
+    }
+}
+header nav ul li a {
+    padding: 40px 10px;
+    display: block;
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+    position: relative;
+    z-index: 2;
+}
+header nav ul li a.active,
+header nav ul li a:hover {
+    color: var(--main-color);
+    border-bottom: 2px solid var(--main-color);
+}
+header nav .form {
+    width: 40px;
+    height: 30px;
+    position: relative;
+    margin-left: 30px;
+    border-left: 1px solid white;
+}
+header nav .form i {
+    color: white;
+    position: absolute;
+    font-size: 20px;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+/* End Header */
+/* Start Landing */
+.landing {
+    min-height: 100vh;
+    background-color: #1f2021;
+    /* This color will appear only if there is a problem with showing the bg img*/
+    background-image: url('../images/landing0.jpg');
+    background-size: cover;
+    position: relative;
+    transition: background-image 1s ease;
+}
+.landing .overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 60%);
+}
+.landing .text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--transparent-color);
+    color: white;
+    width: 60%;
+    padding: 40px;
+
+    display: flex;
+    justify-content: flex-end;
+}
+.landing .text .content {
+    max-width: 500px;
+}
+@media (max-width: 767px) {
+    .landing .text {
+        width: 100%;
+    }
+    .landing .text .content {
+        max-width: 100%;
+    }
+}
+.landing .text .content h2 {
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+.landing .text .content p {
+    font-size: 14px;
+    line-height: 2;
+}
+.landing .change-background {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    cursor: pointer;
+}
+@media (max-width: 767px) {
+    .landing .change-background {
+        display: none;
+    }
+}
+.landing .fa-angle-left {
+    left: 30px;
+}
+.landing .fa-angle-right {
+    right: 30px;
+}
+.landing .bullets {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30px;
+    display: flex;
+}
+.landing .bullets li {
+   width: 20px;
+   height: 20px;
+   border: 1px solid white;
+   border-radius: 50%;
+   margin-right: 10px;
+   cursor: pointer;
+}
+.landing .bullets li.active-bullet {
+    border-color: var(--main-color);
+    background-color: var(--main-color);
+}
+/* End Landing */
+/* Start Services */
+.services {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+}
+@media (min-width: 768px) {
+    .services .services-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(450px,1fr));
+      grid-column-gap: 50px;
+      grid-row-gap: 60px;
+    }
+}
+/* .services .services-container {
+
+} */
+.services .srv-box {
+    display: flex;
+}
+.services .srv-box i {
+    margin-right: 35px;
+}
+@media (max-width: 767px) {
+    .services .srv-box {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .services .srv-box i {
+        margin-right: 0;
+        margin: 0 0 30px 0;
+    }
+}
+.services .srv-box h3 {
+    margin-bottom: 30px;
+    color: var(--main-color);
+}
+.services .srv-box p {
+    line-height: 2;
+    color: #777;
+}
+/* End Services */
+/* Start Design */
+.design {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    height: 600px;
+    position: relative;
+    background-image: url('../images/design-features.jpg');
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+.design::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 50%);
+    left: 0;
+    top: 0;
+}
+.design .image,
+.design .text {
+    position: relative;
+    z-index: 2;
+    flex-grow: 1;
+}
+.design .image {
+    text-align: center;
+}
+@media (max-width: 767px) {
+    .design .image {
+        display: none;
+    }
+}
+.design .image img {
+    position: relative;
+    bottom: -150px;
+}
+.design .text {
+    color: white;
+    padding: 50px;
+    background-color: var(--transparent-color);
+}
+.design .text h2 {
+    font-weight: normal;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+.design .text ul li {
+    padding: 15px 0;
+}
+.design .text ul li::before {
+    font-family: 'Font Awesome 5 Free';
+    content: '\f108';
+    font-weight: 900;
+    margin-right: 20px;
+    position: relative;
+    top: 1px;
+}
+/* End Design */
+/* Start Portfolio */
+.portfolio {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+}
+.portfolio .shuffle {
+    display: flex;
+    justify-content: center;
+}
+.portfolio .shuffle li {
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.portfolio .shuffle li.active,
+.portfolio .shuffle li:hover {
+    background-color: var(--main-color);
+    color: white;
+}
+.portfolio .imgs-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 60px;
+}
+.portfolio .imgs-container .box {
+    position: relative; /* Its child (caption) will be absolute */
+    overflow: hidden; 
+    /* because the caption will be hidden inside the box, and appears on hover*/
+}
+.portfolio .imgs-container .box:hover .caption {
+    bottom: 0;
+}
+.portfolio .imgs-container .box:hover img {
+    transform: rotate(-3deg) scale(1.1);
+}
+@media (min-width: 768px) {
+    .portfolio .imgs-container .box {
+        flex-basis: 50%;
+    }
+}
+@media (min-width: 1199px) {
+    .portfolio .imgs-container .box {
+        flex-basis: 25%;
+    }
+}
+.portfolio .imgs-container .box img {
+    max-width: 100%;
+    transition: 0.3s;
+}
+.portfolio .imgs-container .box .caption {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: -100%;
+    background-color: white;
+    padding: 20px;
+    transition: 0.3s;
+}
+.portfolio .imgs-container .box .caption h4 {
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+.portfolio .imgs-container .box .caption p {
+    color: var(--main-color);
+}
+.portfolio .more {
+    background-color: var(--main-color);
+    color: white;
+    padding: 15px 20px;
+    display: block;
+    width: fit-content;
+    margin: 30px auto;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+/* .portfolio .more:hover {
+    
+} */
+/* End Portfolio */
+/* Start Video */
+.video {
+    position: relative;
+}
+.video::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 40%);
+}
+.video video {
+    width: 100%;
+}
+.video .text {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 50px;
+    background-color: var(--transparent-color);
+    text-align: center;
+    color: white;
+
+    max-height: 100%;
+}
+.video .text h2 {
+   margin: 0 0 30px;
+   font-weight: normal;
+   text-transform: uppercase;
+}
+.video .text p {
+   margin-bottom: 30px;
+}
+.video .text button {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    text-transform: uppercase;
+}
+@media (max-width: 767px) {
+    .video .text h2 {
+        margin: 0 0 18px;
+        font-size: 18px;
+    }
+    .video .text p {
+        margin-bottom: 20px;
+        font-size: 16px;
+     }
+     .video .text button {
+        font-size: 14px;
+        padding: 8px 10px;
+     }
+}
+/* End Video */
+/* Start About */
+.about .main-heading p {
+    margin: 0 auto 50px;
+}
+.about {
+    padding-top: var(--section-padding);
+    overflow: hidden;
+    text-align: center;
+}
+.about img {
+    position: relative;
+    bottom: -120px;
+    margin-top: -120px;
+    max-width: 100%;
+}
+@media (max-width: 767px) {
+    .about img {
+       bottom: -55px;
+       margin-top: -55px;
+    }
+}
+/* End About */
+/* Start Stats */
+.stats {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    text-align: center;
+    background-image: url('../images/stats.png');
+    background-size: cover;
+    position: relative;
+}
+.stats::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgb(0 0 0 / 70%);
+}
+.stats .container {
+    position: relative; /* Because we want it to be above the overlay */
+    display: flex;
+    flex-wrap: wrap; /* allow boxes to span multiple lines */
+}
+.stats .container .box {
+ color: white;
+ padding: 50px;
+ background-color: var(--transparent-color);
+}
+@media (max-width: 767px) {
+    .stats .container .box {
+        flex-basis: 100%;
+        margin-bottom: 2px;
+    }
+}
+@media (min-width: 767px) {
+    .stats .container .box {
+        flex-basis: 50%;
+    }
+}
+@media (min-width: 992px) {
+    .stats .container .box {
+        flex-basis: 25%;
+    }
+}
+.stats .container .box i {
+    width: 60px;
+    height: 60px;
+    background-color: #222;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin: 0 auto 30px;
+}
+.stats .container .box .number {
+    font-size: 50px;
+    font-weight: bold;
+    margin: 0 0 20px;
+}
+.stats .container .box p {
+    font-size: 14px;
+}
+/* End Stats */
+/* Start Skills */
+.our-skills {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+}
+.our-skills .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /*allow multiple lines*/
+}
+@media (min-width: 992px) {
+    .our-skills .container > div {
+       /* > div means the direct children divs of the container */
+     flex-basis: 45%;
+   }
+}
+.our-skills .container > div > h3 {
+    margin: 0 0 30px;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--main-color);
+    font-size: 35px;
+}
+.our-skills .container > div > p {
+    color: #777;
+    line-height: 2;
+    text-align: center;
+    margin-bottom: 60px;
+}
+.our-skills .testimonials .content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.our-skills .testimonials .content img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 50px;
+}
+@media (max-width: 767px) {
+    .our-skills .testimonials .content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .our-skills .testimonials .content img {
+        margin: 0 auto 20px;
+    }
+}
+.our-skills .testimonials .content .text {
+    line-height: 1.8;
+    border-bottom: 1px solid #ccc;
+}
+.our-skills .testimonials .content .text p {
+    color: #777;
+    text-align: right;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.our-skills .testimonials .bullets {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.our-skills .testimonials .bullets li {
+    width: 14px;
+    height: 14px;
+    border: 1px solid #aaa;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.our-skills .testimonials .bullets li.active {
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+}
+.our-skills .skills .prog-holder {
+    margin-bottom: 40px;
+}
+.our-skills .skills .prog-holder h4 {
+    margin-bottom: 15px;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+.our-skills .skills .prog-holder .prog {
+    background-color: #dedadc;
+    height: 30px;
+}
+.our-skills .skills .prog-holder .prog span {
+    display: block;
+    background-color: var(--main-color);
+    height: 100%;
+    position: relative;
+}
+.our-skills .skills .prog-holder .prog span::before {
+    content: attr(data-progress);
+    position: absolute;
+    background-color: black;
+    color: white;
+    padding: 4px 0;
+    width: 40px;
+    top: -40px;
+    right: -18px;
+    text-align: center;
+    border-radius: 4px;
+}
+.our-skills .skills .prog-holder .prog span::after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 8px;
+    border-color: black transparent transparent transparent;
+    right: -8px;
+    top: -15px;
+}
+/* End Skills */
+/* Start Quote */
+.quote {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    background-image: url(../images/quote.jpg);
+    background-size: cover;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+.quote::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgb(0 0 0 / 75%);
+}
+.quote .container {
+    position: relative;
+}
+.quote .container q {
+    margin-bottom: 20px;
+    display: block;
+    font-size: 30px;
+}
+.quote .container q::before {
+    font-family: 'Font Awesome 5 Free';
+    content: '\f10d';
+    font-weight: 900;
+    position: relative;
+    font-size: 25px;
+}
+.quote .container q::after {
+    font-family: 'Font Awesome 5 Free';
+    content: '\f10e';
+    font-weight: 900;
+    position: relative;
+    font-size: 25px;
+}
+/* End Quote */
+/* Start Pricing */
+.pricing {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+}
+.pricing .plans {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 30px;
+}
+.pricing .plans .plan {
+    background-color: rgb(247, 247, 247);
+    text-align: center;
+    transition: 0.2s;
+}
+.pricing .plans .plan:hover {
+    box-shadow: 0 0 2px 0px var(--main-color);
+}
+.pricing .plans .plan .head {
+    padding: 40px 20px;
+    border-top: 1px solid var(--main-color);
+    border-bottom: 1px solid var(--main-color);
+}
+.pricing .plans .plan .head h3 {
+    text-transform: uppercase;
+    color: var(--main-color);
+    font-size: 30px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+.pricing .plans .plan .head .price {
+    font-size: 60px;
+    font-weight: bold;
+}
+.pricing .plans .plan .head .price::before {
+    content: '$';
+    position: relative;
+    font-size: 25px;
+    top: -40px;
+    margin-right: 15px;
+    font-weight: normal;
+}
+.pricing .plans .plan .head .price::after {
+    content: '/MO';
+    position: relative;
+    font-size: 20px;
+    right: -15px;
+    font-weight: normal;
+}
+.pricing .plans .plan ul {
+    border-bottom: 1px solid var(--main-color);
+}
+.pricing .plans .plan ul li {
+    padding: 20px;
+    position: relative;
+}
+.pricing .plans .plan ul li:not(:last-child)::after {
+    content: "";
+    width: 145px;
+    height: 1px;
+    position: absolute;
+    background-color: var(--main-color);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.pricing .plans .plan .foot a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: 1px solid var(--main-color);
+    color: #777;
+    width: fit-content;
+    margin: 30px auto;
+    transition: 0.3s ease;
+}
+.pricing .plans .plan .foot a:hover {
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 3px;
+}
+.pricing .contact-text {
+    text-align: center;
+    margin: 50px auto 20px;
+    font-size: 20px;
+}
+.pricing .contact-link {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    background-color: var(--main-color);
+    color: white;
+    padding: 15px 30px; 
+    text-decoration: none;
+    transition: 0.3s ease;
+    position: relative;
+    z-index: 0;
+}
+.pricing .contact-link::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    width:0;
+    background-color: var(--hover-main-color);
+    transition: 0.4s;
+    z-index: -1;
+}
+.pricing .contact-link:hover::before {
+    width: 100%;
+}
+/* End Pricing */
+/* Start Subscribe */
+.subscribe {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    background-image: url('../images/subscribe.jpg');
+    background-size: cover;
+    position: relative;
+    color: white;
+}
+.subscribe::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgb(0 0 0 / 50%);
+}
+.subscribe .container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+@media (max-width: 991px) {
+    .subscribe .container {
+        flex-direction: column;
+    }
+}
+.subscribe form {
+    display: flex;
+    position: relative; /* because the mail icon will be positioned */
+    width: 500px;
+    max-width: 100%;
+}
+.subscribe form i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 25px;
+    z-index: 2;
+}
+.subscribe form input[type='email']{
+    outline: none;
+    border: 1px solid white;
+    border-right: none;
+    background: rgb(0 0 0 / 40%);
+    padding: 20px 20px 20px 60px;
+    caret-color: var(--main-color);
+    color: white;
+    width: calc(100% - 130px);
+    font-size: 20px;
+    position: relative;
+}
+.subscribe form input[type='submit']{
+    width: 130px;
+    background-color: var(--main-color);
+    color: white;
+    padding: 10px 20px;
+    border: 1px solid white;
+    border-left: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.subscribe form input[type='submit']:hover {
+    background-color: var(--hover-main-color);
+}
+.subscribe form ::placeholder {
+    color: #ededed;
+}
+.subscribe p {
+    line-height: 2;
+    margin-left: 50px;
+}
+@media (max-width: 991px) {
+    .subscribe p {
+        margin: 30px 0 0;
+    }
+}
+/* End Subscribe */
+/* Start Contact */
+.contact {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+}
+.contact .content {
+    display: flex;
+    justify-content: space-between;
+}
+@media (max-width: 767px) {
+    .contact .content {
+        flex-direction: column;
+    }
+}
+.contact .content form {
+    flex-basis: 70%;
+}
+.contact .content form .main-input {
+    padding: 20px;
+    display: block;
+    border: 1px solid #ccc;
+    margin-bottom: 30px;
+    width: 100%;
+}
+.contact .content form .main-input:focus {
+    border: none;
+    outline: 2px solid var(--main-color);
+}
+.contact .content form textarea.main-input {
+    resize: vertical;
+    min-height: 180px;
+    height: 200px;
+    max-height: 300px;
+}
+.contact .content form button[type='submit'] {
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    padding: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    /* This is a pretty hack to move the button to the right by using flex :) */
+    display: flex;
+    margin-left: auto;
+    /* To make the hover effect: */
+    position: relative;
+    z-index: 0;
+}
+.contact .content form button[type='submit']::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background-color: var(--hover-main-color);
+    transition: 0.2s ease;
+    z-index: -1;
+}
+.contact .content form button[type='submit']:hover::after {
+    width: 100%;
+}
+.contact .content .info {
+    flex-basis: 25%;
+}
+@media (max-width: 767px) {
+    .contact .content .info {
+        order: -1; 
+        /* This will give the info div the priority to come first before the form*/
+        text-align: center;
+
+        /* Also I would love the phone block and the addrss block to come next tp each other */
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        margin-bottom: 40px;
+        border-bottom: 1px solid var(--main-color);
+        border-top: 1px solid var(--main-color);
+    }
+    .contact .content .info .info-block{
+        flex-basis: 40%;
+    }
+}
+.contact .content .info h4 {
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+.contact .content .info .phone {
+    display: block;
+    color: #777;
+    margin-bottom: 10px;
+}
+.contact .content .info .info-block:last-child h4 {
+    margin-top: 90px;
+}
+@media (max-width: 767px) {
+    .contact .content .info .info-block:last-child h4 {
+        margin-top: 0;
+    }
+}
+.contact .content .info address {
+    color: #777;
+    line-height: 2;
+}
+/* End Contact */
+/* Start Footer */
+.footer {
+    padding-top: calc(var(--section-padding) / 2);
+    padding-bottom: calc(var(--section-padding) / 2);
+    background-image: url(../images/subscribe.jpg);
+    background-size: cover;  
+    position: relative;
+    color: white;
+    text-align: center;
+}
+.footer::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgb(0 0 0 / 70%);
+}
+.footer .container {
+    position: relative;
+}
+.footer img {
+    margin-bottom: 20px;
+}
+.footer p:not(.copyright) {
+    text-transform: uppercase;
+    padding: 20px;
+    border-bottom: 1px solid white;
+    font-size: 22px;
+    width: fit-content;
+    margin: 20px auto;
+}
+.footer .social-icons a {
+    color: white;
+    transition: 0.3s;
+}
+.footer .social-icons a:hover {
+    color: var(--main-color);
+}
+.footer .social-icons i {
+    padding: 10px 15px;
+}
+.footer .copyright {
+    margin-top: 60px;
+}
+.footer .copyright span {
+    color: var(--main-color);
+    font-weight: bold;
+}
+/* End Footer */
+
+
+
