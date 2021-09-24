@@ -151,7 +151,7 @@ header nav ul {
         top: 100%; /* This means to be far away from the top of your parent by its height */
         left: 0;
         width: 100%;
-        background-color: rgb(0 0 0 / 70%);
+        background-color: rgb(0 0 0 / 95%);
     }
     header nav ul li a {
         padding: 15px !important;
