@@ -223,14 +223,6 @@ header nav .form i {
 .landing .text .content {
     max-width: 500px;
 }
-@media (max-width: 767px) {
-    .landing .text {
-        width: 100%;
-    }
-    .landing .text .content {
-        max-width: 100%;
-    }
-}
 .landing .text .content h2 {
     font-size: 32px;
     font-weight: normal;
@@ -240,6 +232,19 @@ header nav .form i {
 .landing .text .content p {
     font-size: 14px;
     line-height: 2;
+}
+@media (max-width: 767px) {
+    .landing .text {
+        width: 100%;
+        top: 55%;
+        padding: 20px;
+    }
+    .landing .text .content {
+        max-width: 100%;
+    }
+    .landing .text .content h2 {
+        font-size: 25px;
+    }
 }
 .landing .change-background {
     position: absolute;
